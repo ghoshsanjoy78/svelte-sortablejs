@@ -47,10 +47,10 @@
 
 
 <ul bind:this={ listElement } class={ ulClass }>
-    {#each items as item (item[idKey])}
+    {#each items as item, i (item[idKey])}
 
 	<li class={ (typeof liClass === "function") ? liClass(item) : liClass } data-id={ item[idKey] }>
-        <slot { item }>{ item }</slot>
+        <slot { item } index={i} >{ item }</slot>
     </li>
 
     {/each}
